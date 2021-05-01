@@ -1,6 +1,6 @@
 # Lights Out Physical project
 
-## Started 20/04/2021
+## Started 30/04/2021
 
 After I had completed creating LightsOut in Python, I was going to make it again with a GUI. I started this process but it sort of fizzled out (though I am sure I will go back to it).
 
@@ -17,6 +17,7 @@ I decided in my *great wisdom* to make a complete recreation of the game physica
 
 It's quite a lofty ambition, maybe not if you're experienced which I certainly am not, but I do hope to achieve it. 
 
+## Added 01/05/2021
 #### Items purchased so far:
 
 |Qty.|Item|Price|
@@ -41,7 +42,7 @@ It's quite a lofty ambition, maybe not if you're experienced which I certainly a
 |18650 Battery Holder|TBD|TBD|TBD|
 |1A/5V MicroUSB Li-Ion Battery Module|TBD|TBD|TBD|
 |PCB|TBD|TBD|1.6|
-## 01/05/2021
+
 
 ### Software
 So I am starting to play around with the circuit idea. As I have never used addressable RGB led's before, I thought best to use an online simulator whilst I was waiting for them to arrive. (I will be using an ESP32 based board, however as I am just experimenting I am using an UNO online)
