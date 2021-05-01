@@ -29,7 +29,7 @@ Have brought so far:
 |12|18650 Battery Holder|£6.99|
 |5|1A/5V MicroUSB LiIon Battery Module|£6.99|
 |1|60/40 Solder 100g|£6.37|
-|1|1l Isopropanol 99.9%| £9.49|
+|1|1L Isopropanol 99.9%| £9.49|
 ||**Total**|**£59.43**|
 
 ## 01/05/2021
