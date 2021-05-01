@@ -17,7 +17,7 @@ I decided in my *great wisdom* to make a complete recreation of the game physica
 
 It's quite a lofty ambition, maybe not if you're experienced which I certainly am not, but I do hope to achieve it. 
 
-Have brought so far:
+#### Items purchased so far:
 
 |Qty.|Item|Price|
 |--|--|--|
@@ -27,11 +27,20 @@ Have brought so far:
 |4 |Various pin connectors|£6.15|  
 ||added 01/05/2021...
 |12|18650 Battery Holder|£6.99|
-|5|1A/5V MicroUSB LiIon Battery Module|£6.99|
+|5|1A/5V MicroUSB Li-Ion Battery Module|£6.99|
 |1|60/40 Solder 100g|£6.37|
 |1|1L Isopropanol 99.9%| £9.49|
 ||**Total**|**£59.43**|
 
+#### Dimensions of Items in mm *(For later reference)*
+
+|Item Name|Length|Width|Height|
+|--|--|--|--|
+|SK6812 5050 RGB LEDs|5|5|1.6|
+|Gateron Switches Green (SMD Variant)|TBD|TBD|TBD|
+|18650 Battery Holder|TBD|TBD|TBD|
+|1A/5V MicroUSB Li-Ion Battery Module|TBD|TBD|TBD|
+|PCB|TBD|TBD|1.6|
 ## 01/05/2021
 
 ### Software
