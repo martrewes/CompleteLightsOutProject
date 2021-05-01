@@ -25,7 +25,7 @@ Have brought so far:
 |30|Gateron Switches Green (SMD Variant)|£9.45|
 |1 | 15m Cat5e Cable (solid core)|£8.99|
 |4 |Various pin connectors|£6.15|  
-|added 01/05/2021...
+||added 01/05/2021...
 |12|18650 Battery Holder|£6.99|
 |5|1A/5V MicroUSB LiIon Battery Module|£6.99|
 |1|60/40 Solder 100g|£6.37|
