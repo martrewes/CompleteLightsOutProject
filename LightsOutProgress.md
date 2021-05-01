@@ -95,3 +95,7 @@ Next, in terms of software, I am going to work on the switch matrix and see how 
 ### Design
 I have also done a rough draft of what I think it will look like (completely not final). Obviously, there is a lot I need to change, but this was just to have an idea of where I am heading.
 ![img](imgs/LayoutDraft.jpg)
+
+### Additional notes
+
+I just found that the SMD LEDs will require some 104 capacitors. I believe this is for each LED, but I will research this more in due course.
