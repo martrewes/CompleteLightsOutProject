@@ -1,5 +1,15 @@
 # Lights Out Physical project
 
+- [Lights Out Physical project](#lights-out-physical-project)
+  * [Intro](#intro)
+  * [Added 01/05/2021](#added-01-05-2021)
+    + [Items purchased so far:](#items-purchased-so-far)
+    + [Dimensions of Items in mm](#dimensions-of-items-in-mm)
+    + [Software](#software)
+    + [Design](#design)
+  * [Added 05/05/2021](#added-05-05-2021)
+    + [PCB](#PCB)
+
 ## Intro
 
 After I had completed creating LightsOut in Python, I was going to make it again with a GUI. I started this process but it sort of fizzled out (though I am sure I will go back to it).
@@ -18,7 +28,7 @@ I decided in my *great wisdom* to make a complete recreation of the game physica
 It's quite a lofty ambition, maybe not if you're experienced which I certainly am not, but I do hope to achieve it. 
 
 ## Added 01/05/2021
-#### Items purchased so far:
+### Items purchased so far:
 
 |Qty.|Item|Price|
 |--|--|--|
@@ -33,7 +43,7 @@ It's quite a lofty ambition, maybe not if you're experienced which I certainly a
 |1|1L Isopropanol 99.9%| £9.49|
 ||**Total**|**£59.43**|
 
-#### Dimensions of Items in mm *(For later reference)*
+### Dimensions of Items in mm
 
 |Item Name|Length|Width|Height|
 |--|--|--|--|
@@ -98,7 +108,10 @@ I have also done a rough draft of what I think it will look like (completely not
 
 ## Added 05/05/2021
 
-So I have been working on this a lot behind the scenes, but there has nothing of note really been done so far. Just a load of idea's on how to approach this. Thankfully some of the parts arrived today, so I have been able to measure and imagine how large the pcb needs to be etc. On top of that, I have also been working on a few PCB ideas. I think I have figured out the best way to approach it (Capacitors got in the way of progress there) and have two switches plotted and wired up below:
+So I have been working on this a lot behind the scenes, but there has nothing of note really been done so far. Just a load of idea's on how to approach this. Thankfully some of the parts arrived today, so I have been able to measure and imagine how large the pcb needs to be etc. On top of that, I have also been working on a few PCB ideas. 
+
+### PCB
+I think I have figured out the best way to approach it (Capacitors got in the way of progress there) and have two switches plotted and wired up below:
 ![img](imgs/ScreenshotBoard.png)
 ![img](imgs/ScreenshotBrd3D.png)
 
