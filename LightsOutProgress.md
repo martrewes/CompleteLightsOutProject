@@ -1,6 +1,6 @@
 # Lights Out Physical project
 
-## Started 30/04/2021
+## Intro
 
 After I had completed creating LightsOut in Python, I was going to make it again with a GUI. I started this process but it sort of fizzled out (though I am sure I will go back to it).
 
@@ -95,3 +95,11 @@ Next, in terms of software, I am going to work on the switch matrix and see how 
 ### Design
 I have also done a rough draft of what I think it will look like (completely not final). Obviously, there is a lot I need to change, but this was just to have an idea of where I am heading.
 ![img](imgs/LayoutDraft.jpg)
+
+## Added 05/05/2021
+
+So I have been working on this a lot behind the scenes, but there has nothing of note really been done so far. Just a load of idea's on how to approach this. Thankfully some of the parts arrived today, so I have been able to measure and imagine how large the pcb needs to be etc. On top of that, I have also been working on a few PCB ideas. I think I have figured out the best way to approach it (Capacitors got in the way of progress there) and have two switches plotted and wired up below:
+![img](imgs/ScreenshotBoard.png)
+![img](imgs/ScreenshotBrd3D.png)
+
+The blue traces are on the underside of the board. I have managed to put all of the traces for the LEDs on this side, which will make routing the row and colums for the switches (red traces) much easier. 
