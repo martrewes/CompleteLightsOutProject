@@ -9,6 +9,7 @@
     + [Design](#design)
   * [Edit 2](#edit-2)
     + [PCB](#PCB)
+- [Changes](#changes)
 
 ## Intro
 
