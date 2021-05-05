@@ -2,12 +2,12 @@
 
 - [Lights Out Physical project](#lights-out-physical-project)
   * [Intro](#intro)
-  * [Added 01/05/2021](#added-01-05-2021)
+  * [Edit 1](#edit-1)
     + [Items purchased so far:](#items-purchased-so-far)
     + [Dimensions of Items in mm](#dimensions-of-items-in-mm)
     + [Software](#software)
     + [Design](#design)
-  * [Added 05/05/2021](#added-05-05-2021)
+  * [Edit 2](#edit-2)
     + [PCB](#PCB)
 
 ## Intro
@@ -27,31 +27,35 @@ I decided in my *great wisdom* to make a complete recreation of the game physica
 
 It's quite a lofty ambition, maybe not if you're experienced which I certainly am not, but I do hope to achieve it. 
 
-## Added 01/05/2021
+## Edit 1
 ### Items purchased so far:
 
-|Qty.|Item|Price|
-|--|--|--|
-|60|SK6812 5050 RGB LEDs|£5.00|
-|30|Gateron Switches Green (SMD Variant)|£9.45|
-|1 | 15m Cat5e Cable (solid core)|£8.99|
-|4 |Various pin connectors|£6.15|  
-||added 01/05/2021...
-|12|18650 Battery Holder|£6.99|
-|5|1A/5V MicroUSB Li-Ion Battery Module|£6.99|
-|1|60/40 Solder 100g|£6.37|
-|1|1L Isopropanol 99.9%| £9.49|
-||**Total**|**£59.43**|
+This table will be updated as and when
+
+|Qty.|Item|Price|Arrived|
+|--|--|--|--|
+|60|SK6812 5050 RGB LEDs|£5.00|Yes|
+|30|Gateron Switches Green (SMD Variant)|£9.45|Yes|
+|1 | 15m Cat5e Cable (solid core)|£8.99|No|
+|4 |Various pin connectors|£6.15|No|  
+|12|18650 Battery Holder|£6.99|Yes|
+|5|1A/5V MicroUSB Li-Ion Battery Module|£6.99|Yes|
+|1|60/40 Solder 100g|£6.37|Yes|
+|1|1L Isopropanol 99.9%| £9.49|Yes|
+|50| 0.1uF 1206 SMD Capacitors|£2.30|No|
+
+||**Total**|**£61.73**|
 
 ### Dimensions of Items in mm
 
 |Item Name|Length|Width|Height|
 |--|--|--|--|
 |SK6812 5050 RGB LEDs|5|5|1.6|
-|Gateron Switches Green (SMD Variant)|TBD|TBD|TBD|
-|18650 Battery Holder|TBD|TBD|TBD|
-|1A/5V MicroUSB Li-Ion Battery Module|TBD|TBD|TBD|
+|Gateron Switches Green (SMD Variant)|15.8|15.6|18|
+|18650 Battery Holder|75.9|20.9|18.5|
+|1A/5V MicroUSB Li-Ion Battery Module|28.7|17.3|3.5|
 |PCB|TBD|TBD|1.6|
+|Capacitors|3.2|1.6|1|
 
 
 ### Software
@@ -106,7 +110,7 @@ Next, in terms of software, I am going to work on the switch matrix and see how 
 I have also done a rough draft of what I think it will look like (completely not final). Obviously, there is a lot I need to change, but this was just to have an idea of where I am heading.
 ![img](imgs/LayoutDraft.jpg)
 
-## Added 05/05/2021
+## Edit 2
 
 So I have been working on this a lot behind the scenes, but there has nothing of note really been done so far. Just a load of idea's on how to approach this. Thankfully some of the parts arrived today, so I have been able to measure and imagine how large the pcb needs to be etc. On top of that, I have also been working on a few PCB ideas. 
 
@@ -116,3 +120,18 @@ I think I have figured out the best way to approach it (Capacitors got in the wa
 ![img](imgs/ScreenshotBrd3D.png)
 
 The blue traces are on the underside of the board. I have managed to put all of the traces for the LEDs on this side, which will make routing the row and colums for the switches (red traces) much easier. 
+
+# Changes
+- 31/04/2021
+   - Initial Creation
+   - Added price list
+- 01/05/2021
+   - Added Intro
+   - Added battery holders, power boards and misc to price list
+   - Added Dimensions table
+   - Software notes
+   - Design Notes
+- 05/05/2021
+   - Added PCB ideas
+   - Items arrived
+   - Added Capacitors to price list/dimensions
