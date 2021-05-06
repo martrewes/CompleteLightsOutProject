@@ -7,7 +7,9 @@
     - [Dimensions of Items in mm](#dimensions-of-items-in-mm)
     - [Software](#software)
     - [Design](#design)
-    - [Additional notes](#additional-notes)
+  - [Edit 2](#edit-2)
+    - [PCB](#pcb)
+- [Changes](#changes)
 
 ## Intro
 
@@ -109,6 +111,28 @@ Next, in terms of software, I am going to work on the switch matrix and see how 
 I have also done a rough draft of what I think it will look like (completely not final). Obviously, there is a lot I need to change, but this was just to have an idea of where I am heading.
 ![img](imgs/LayoutDraft.jpg)
 
-### Additional notes
+## Edit 2
 
-I just found that the SMD LEDs will require some 104 capacitors. I believe this is for each LED, but I will research this more in due course.
+So I have been working on this a lot behind the scenes, but there has nothing of note really been done so far. Just a load of idea's on how to approach this. Thankfully some of the parts arrived today, so I have been able to measure and imagine how large the pcb needs to be etc. On top of that, I have also been working on a few PCB ideas. 
+
+### PCB
+I think I have figured out the best way to approach it (Capacitors got in the way of progress there) and have two switches plotted and wired up below:
+![img](imgs/ScreenshotBoard.png)
+![img](imgs/ScreenshotBrd3D.png)
+
+The blue traces are on the underside of the board. I have managed to put all of the traces for the LEDs on this side, which will make routing the row and colums for the switches (red traces) much easier. 
+
+# Changes
+- 31/04/2021
+   - Initial Creation
+   - Added price list
+- 01/05/2021
+   - Added Intro
+   - Added battery holders, power boards and misc to price list
+   - Added Dimensions table
+   - Software notes
+   - Design Notes
+- 05/05/2021
+   - Added PCB ideas
+   - Items arrived
+   - Added Capacitors to price list/dimensions
