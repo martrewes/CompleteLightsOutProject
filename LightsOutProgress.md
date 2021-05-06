@@ -9,6 +9,7 @@
     - [Design](#design)
   - [Edit 2](#edit-2)
     - [PCB](#pcb)
+  - [Edit 3](#edit-3)
 - [Changes](#changes)
 
 ## Intro
@@ -120,7 +121,14 @@ I think I have figured out the best way to approach it (Capacitors got in the wa
 ![img](imgs/ScreenshotBoard.png)
 ![img](imgs/ScreenshotBrd3D.png)
 
-The blue traces are on the underside of the board. I have managed to put all of the traces for the LEDs on this side, which will make routing the row and colums for the switches (red traces) much easier. 
+The blue traces are on the underside of the board. I have managed to put all of the traces for the LEDs on this side, which will make routing the row and columns for the switches (red traces) much easier. 
+
+## Edit 3
+
+So I have finally made the first PCB. It took far too long, but it isn't something I am a professional at. This is of the button pad (which was the hardest to design (I think)), and I know I probably made so many errors, but I completed it. I have sent it off for manufacture at just over £7, so I am not too worried if it doesn't work. At least I will have something physical and then I can progress from there. I think I will leave it here for today.
+![img](imgs/ButtonPadPCB.jpg)
+![img](imgs/ButtonPadPCBFront.jpg)
+![img](imgs/ButtonPadPCBBack.jpg)
 
 # Changes
 - 31/04/2021
@@ -136,3 +144,5 @@ The blue traces are on the underside of the board. I have managed to put all of 
    - Added PCB ideas
    - Items arrived
    - Added Capacitors to price list/dimensions
+- 06/05/2021
+   - Finally completed a PCB (1 of *n*) and sent off for manufacture  
