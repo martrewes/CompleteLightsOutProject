@@ -45,8 +45,7 @@ This table will be updated as and when
 |1|60/40 Solder 100g|£6.37|Yes|
 |1|1L Isopropanol 99.9%| £9.49|Yes|
 |50| 0.1uF 1206 SMD Capacitors|£2.30|No|
-
-||**Total**|**£61.73**|
+||**Total**|**£61.73**||
 
 ### Dimensions of Items in mm
 
