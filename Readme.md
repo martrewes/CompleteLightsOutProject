@@ -10,6 +10,9 @@
   - [Edit 2](#edit-2)
     - [PCB](#pcb)
   - [Edit 3](#edit-3)
+  - [Edit 4](#edit-4)
+    - [Button Layout](#button-layout)
+    - [Serial Output](#serial-output)
 - [Changes](#changes)
 
 ## Intro
@@ -130,6 +133,76 @@ So I have finally made the first PCB. It took far too long, but it isn't somethi
 ![img](imgs/ButtonPadPCBFront.jpg)
 ![img](imgs/ButtonPadPCBBack.jpg)
 
+## Edit 4
+
+A lot of progress has been made today in terms of software. I have successfully managed to get it to the point of playing a level (displaying through the Serial Monitor), at the same time displaying what "button" has been pressed on a small screen. I am currently just joining assigned rows and columns together with a wire to simulate the button. So far the software can:
+- Set up communications between it and the OLED display
+- Read a level array and load it into its working array
+- Calculate the sum of all "lights" that are on
+- When that sum = 0, move out of the loop and on to the next level (need to populate those, yet)
+- Display the "button" that was pressed on the small display
+- Out put the board to the serial console (no light array yet)
+
+I have decided to include the Arduino code into this repository now, so I don't forget to add it later. I'm really quite happy with how far I progressed today.
+
+>Yes, I am fully aware that there is probably a much better way to handle the simple task I am trying to accomplish. I am not trying to copy anyone's ideas though, so I am just trying to make it work in what would make logical sense to me.
+
+![img](imgs/PrototypeBreadboard.jpg)
+
+### Button Layout
+
+|Col/Row|1|2|3|4|5|
+|1|A|B|C|D|E|
+|2|F|G|H|I|J|
+|3|K|L|M|N|O|
+|4|P|Q|R|S|T|
+|5|U|V|W|X|Y|
+
+### Serial Output
+```
+Level: 1
+00000   
+00000
+00000
+10101
+10101
+U //'button' pressed
+Going into routine
+Level: 1
+00000
+00000
+00000
+00101
+01101
+Tot. On: 5
+W
+Going into routine
+Level: 1
+00000
+00000
+00000
+00001
+00011
+Tot. On: 3
+Y
+Going into routine
+Level: 1
+00000
+00000
+00000
+00000
+00000
+Tot. On: 1
+Level Complete!!!
+
+Level: 2
+00000
+00000
+00000
+10101
+10101
+```
+
 # Changes
 - 31/04/2021
    - Initial Creation
@@ -145,4 +218,6 @@ So I have finally made the first PCB. It took far too long, but it isn't somethi
    - Items arrived
    - Added Capacitors to price list/dimensions
 - 06/05/2021
-   - Finally completed a PCB (1 of *n*) and sent off for manufacture  
+   - Finally completed a PCB (1 of *n*) and sent off for manufacture
+- 07/05/2021
+  - Added software and made great progress!
