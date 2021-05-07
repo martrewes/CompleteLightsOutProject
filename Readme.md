@@ -151,6 +151,7 @@ I have decided to include the Arduino code into this repository now, so I don't 
 ### Button Layout
 
 |Col/Row|1|2|3|4|5|
+|--|--|--|--|--|--|
 |1|A|B|C|D|E|
 |2|F|G|H|I|J|
 |3|K|L|M|N|O|
