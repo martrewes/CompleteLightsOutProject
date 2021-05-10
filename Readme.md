@@ -40,29 +40,29 @@ It's quite a lofty ambition, maybe not if you're experienced which I certainly a
 
 This table will be updated as and when
 
-|Qty.|Item|Price|Arrived|
-|--|--|--|--|
-|60|SK6812 5050 RGB LEDs|£5.00|Yes|
-|30|Gateron Switches Green (SMD Variant)|£9.45|Yes|
-|1 | 15m Cat5e Cable (solid core)|£8.99|No|
-|4 |Various pin connectors|£6.15|No|  
-|12|18650 Battery Holder|£6.99|Yes|
-|5|1A/5V MicroUSB Li-Ion Battery Module|£6.99|Yes|
-|1|60/40 Solder 100g|£6.37|Yes|
-|1|1L Isopropanol 99.9%| £9.49|Yes|
-|50| 0.1uF 1206 SMD Capacitors|£2.30|No|
-||**Total**|**£61.73**||
+| Qty. | Item                                 | Price      | Arrived |
+| ---- | ------------------------------------ | ---------- | ------- |
+| 60   | SK6812 5050 RGB LEDs                 | £5.00      | Yes     |
+| 30   | Gateron Switches Green (SMD Variant) | £9.45      | Yes     |
+| 1    | 15m Cat5e Cable (solid core)         | £8.99      | No      |
+| 4    | Various pin connectors               | £6.15      | No      |
+| 12   | 18650 Battery Holder                 | £6.99      | Yes     |
+| 5    | 1A/5V MicroUSB Li-Ion Battery Module | £6.99      | Yes     |
+| 1    | 60/40 Solder 100g                    | £6.37      | Yes     |
+| 1    | 1L Isopropanol 99.9%                 | £9.49      | Yes     |
+| 50   | 0.1uF 1206 SMD Capacitors            | £2.30      | No      |
+|      | **Total**                            | **£61.73** |         |
 
 ### Dimensions of Items in mm
 
-|Item Name|Length|Width|Height|
-|--|--|--|--|
-|SK6812 5050 RGB LEDs|5|5|1.6|
-|Gateron Switches Green (SMD Variant)|15.8|15.6|18|
-|18650 Battery Holder|75.9|20.9|18.5|
-|1A/5V MicroUSB Li-Ion Battery Module|28.7|17.3|3.5|
-|PCB|TBD|TBD|1.6|
-|Capacitors|3.2|1.6|1|
+| Item Name                            | Length | Width | Height |
+| ------------------------------------ | ------ | ----- | ------ |
+| SK6812 5050 RGB LEDs                 | 5      | 5     | 1.6    |
+| Gateron Switches Green (SMD Variant) | 15.8   | 15.6  | 18     |
+| 18650 Battery Holder                 | 75.9   | 20.9  | 18.5   |
+| 1A/5V MicroUSB Li-Ion Battery Module | 28.7   | 17.3  | 3.5    |
+| PCB                                  | TBD    | TBD   | 1.6    |
+| Capacitors                           | 3.2    | 1.6   | 1      |
 
 
 ### Software
