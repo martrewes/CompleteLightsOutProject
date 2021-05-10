@@ -13,6 +13,9 @@
   - [Edit 4](#edit-4)
     - [Button Layout](#button-layout)
     - [Serial Output](#serial-output)
+  - [Edit 5](#edit-5)
+    - [Playing with Sound](#playing-with-sound)
+    - [**I made a grave mistake!!**](#i-made-a-grave-mistake)
 - [Changes](#changes)
 
 ## Intro
@@ -203,6 +206,23 @@ Level: 2
 10101
 ```
 
+## Edit 5
+
+Seeing as I really now need to wait for my board to be manufactured until I can go any further, I decided to use this time to experiment a little.
+
+### Playing with Sound
+I managed to find an active speaker in with a bunch of random parts, so I decided to play around with the idea of adding sound. Turns out if all you want is a basic tone, it's quite easy with a built in Arduino function `tone()`. I have made some awful sounds with it, but my end goal is to have some sort of sound effect by playing several tones in quick succession. I will continue to play with this.
+
+### **I made a grave mistake!!**
+
+Never just blindly follow something you believe to be true.
+
+Turns out, I wired the PCB completely wrong. I thought VSS was the positive polarity. In the back of my mind I did doubt this as I had seen VDD much more in the past, but I trudged on ahead as if I knew it all. I didn't! 
+
+Luckily, my PCB should be somewhat salvageable. I can cut the trace to the data in pin, then wire the LED the opposite way to the wires, and hook the data in from the bottom. This does mean I will also have to fix the sequence in code as I have been writing that assuming I was correct. I should just be able to reverse the data that I am sending through in theory, but it's still not ideal.
+
+I will fix the PCB in the future, as well make it obvious where code will need to be omitted should it get wired up correctly in the future. Well, that was fun. Still, continue on I suppose.
+
 # Changes
 - 31/04/2021
    - Initial Creation
@@ -221,3 +241,6 @@ Level: 2
    - Finally completed a PCB (1 of *n*) and sent off for manufacture
 - 07/05/2021
   - Added software and made great progress!
+- 10/05/2021
+  - Added info about sound
+  - Made an awful error which could have screwed the project
