@@ -22,20 +22,22 @@
 
 After I had completed creating LightsOut in Python, I was going to make it again with a GUI. I started this process but it sort of fizzled out (though I am sure I will go back to it).
 
-I decided in my *great wisdom* to make a complete recreation of the game physically. The reasons for this are many, but overall I would like to achieve the following:
+I decided in my _great wisdom_ to make a complete recreation of the game physically. The reasons for this are many, but overall I would like to achieve the following:
+
 - Roughly design it
   - Have it use Batteries
   - Be able to charge it
-  - Possibly have an additional display 
+  - Possibly have an additional display
   - Add sound?
 - Create the circuit
 - Create the PCB (and have it manufactured)
 - Write the software (ESP32)
 - Creating a housing (maybe send off for 3D printing)
 
-It's quite a lofty ambition, maybe not if you're experienced which I certainly am not, but I do hope to achieve it. 
+It's quite a lofty ambition, maybe not if you're experienced which I certainly am not, but I do hope to achieve it.
 
 ## Edit 1
+
 ### Items purchased so far:
 
 This table will be updated as and when
@@ -64,8 +66,8 @@ This table will be updated as and when
 | PCB                                  | TBD    | TBD   | 1.6    |
 | Capacitors                           | 3.2    | 1.6   | 1      |
 
-
 ### Software
+
 So I am starting to play around with the circuit idea. As I have never used addressable RGB led's before, I thought best to use an online simulator whilst I was waiting for them to arrive. (I will be using an ESP32 based board, however as I am just experimenting I am using an UNO online)
 ![img](imgs/CircuitExperiments.jpg)
 
@@ -76,7 +78,7 @@ I have also done some rudimentary code along side this in the simulator to get a
 
 #define PIN		13
 #define N_LEDS	25
- 
+
 Adafruit_NeoPixel strip = Adafruit_NeoPixel(N_LEDS, PIN, NEO_GRB + NEO_KHZ800);
 //int req = 0;
 //String hexer = "";
@@ -114,19 +116,21 @@ void loop()
 Next, in terms of software, I am going to work on the switch matrix and see how I can use them as a matrix.
 
 ### Design
+
 I have also done a rough draft of what I think it will look like (completely not final). Obviously, there is a lot I need to change, but this was just to have an idea of where I am heading.
 ![img](imgs/LayoutDraft.jpg)
 
 ## Edit 2
 
-So I have been working on this a lot behind the scenes, but there has nothing of note really been done so far. Just a load of idea's on how to approach this. Thankfully some of the parts arrived today, so I have been able to measure and imagine how large the pcb needs to be etc. On top of that, I have also been working on a few PCB ideas. 
+So I have been working on this a lot behind the scenes, but there has nothing of note really been done so far. Just a load of idea's on how to approach this. Thankfully some of the parts arrived today, so I have been able to measure and imagine how large the pcb needs to be etc. On top of that, I have also been working on a few PCB ideas.
 
 ### PCB
+
 I think I have figured out the best way to approach it (Capacitors got in the way of progress there) and have two switches plotted and wired up below:
 ![img](imgs/ScreenshotBoard.png)
 ![img](imgs/ScreenshotBrd3D.png)
 
-The blue traces are on the underside of the board. I have managed to put all of the traces for the LEDs on this side, which will make routing the row and columns for the switches (red traces) much easier. 
+The blue traces are on the underside of the board. I have managed to put all of the traces for the LEDs on this side, which will make routing the row and columns for the switches (red traces) much easier.
 
 ## Edit 3
 
@@ -138,6 +142,7 @@ So I have finally made the first PCB. It took far too long, but it isn't somethi
 ## Edit 4
 
 A lot of progress has been made today in terms of software. I have successfully managed to get it to the point of playing a level (displaying through the Serial Monitor), at the same time displaying what "button" has been pressed on a small screen. I am currently just joining assigned rows and columns together with a wire to simulate the button. So far the software can:
+
 - Set up communications between it and the OLED display
 - Read a level array and load it into its working array
 - Calculate the sum of all "lights" that are on
@@ -147,24 +152,25 @@ A lot of progress has been made today in terms of software. I have successfully 
 
 I have decided to include the Arduino code into this repository now, so I don't forget to add it later. I'm really quite happy with how far I progressed today.
 
->Yes, I am fully aware that there is probably a much better way to handle the simple task I am trying to accomplish. I am not trying to copy anyone's ideas though, so I am just trying to make it work in what would make logical sense to me.
+> Yes, I am fully aware that there is probably a much better way to handle the simple task I am trying to accomplish. I am not trying to copy anyone's ideas though, so I am just trying to make it work in what would make logical sense to me.
 
 ![img](imgs/PrototypeBreadboard.jpg)
 
 ### Button Layout
 
-|Col/Row|1|2|3|4|5|
-|--|--|--|--|--|--|
-|1|A|B|C|D|E|
-|2|F|G|H|I|J|
-|3|K|L|M|N|O|
-|4|P|Q|R|S|T|
-|5|U|V|W|X|Y|
+| Col/Row | 1   | 2   | 3   | 4   | 5   |
+| ------- | --- | --- | --- | --- | --- |
+| 1       | A   | B   | C   | D   | E   |
+| 2       | F   | G   | H   | I   | J   |
+| 3       | K   | L   | M   | N   | O   |
+| 4       | P   | Q   | R   | S   | T   |
+| 5       | U   | V   | W   | X   | Y   |
 
 ### Serial Output
+
 ```
 Level: 1
-00000   
+00000
 00000
 00000
 10101
@@ -211,34 +217,36 @@ Level: 2
 Seeing as I really now need to wait for my board to be manufactured until I can go any further, I decided to use this time to experiment a little.
 
 ### Playing with Sound
+
 I managed to find an active speaker in with a bunch of random parts, so I decided to play around with the idea of adding sound. Turns out if all you want is a basic tone, it's quite easy with a built in Arduino function `tone()`. I have made some awful sounds with it, but my end goal is to have some sort of sound effect by playing several tones in quick succession. I will continue to play with this.
 
 ### **I made a grave mistake!!**
 
 Never just blindly follow something you believe to be true.
 
-Turns out, I wired the PCB completely wrong. I thought VSS was the positive polarity. In the back of my mind I did doubt this as I had seen VDD much more in the past, but I trudged on ahead as if I knew it all. I didn't! 
+Turns out, I wired the PCB completely wrong. I thought VSS was the positive polarity. In the back of my mind I did doubt this as I had seen VDD much more in the past, but I trudged on ahead as if I knew it all. I didn't!
 
 Luckily, my PCB should be somewhat salvageable. I can cut the trace to the data in pin, then wire the LED the opposite way to the wires, and hook the data in from the bottom. This does mean I will also have to fix the sequence in code as I have been writing that assuming I was correct. I should just be able to reverse the data that I am sending through in theory, but it's still not ideal.
 
 I will fix the PCB in the future, as well make it obvious where code will need to be omitted should it get wired up correctly in the future. Well, that was fun. Still, continue on I suppose.
 
 # Changes
+
 - 31/04/2021
-   - Initial Creation
-   - Added price list
+  - Initial Creation
+  - Added price list
 - 01/05/2021
-   - Added Intro
-   - Added battery holders, power boards and misc to price list
-   - Added Dimensions table
-   - Software notes
-   - Design Notes
+  - Added Intro
+  - Added battery holders, power boards and misc to price list
+  - Added Dimensions table
+  - Software notes
+  - Design Notes
 - 05/05/2021
-   - Added PCB ideas
-   - Items arrived
-   - Added Capacitors to price list/dimensions
+  - Added PCB ideas
+  - Items arrived
+  - Added Capacitors to price list/dimensions
 - 06/05/2021
-   - Finally completed a PCB (1 of *n*) and sent off for manufacture
+  - Finally completed a PCB (1 of _n_) and sent off for manufacture
 - 07/05/2021
   - Added software and made great progress!
 - 10/05/2021
