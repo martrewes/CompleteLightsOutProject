@@ -3,14 +3,26 @@
 #include <Wire.h>
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
-
+#include <Adafruit_NeoPixel.h>
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
 #define OLED_RESET 4        // Reset pin # (or -1 if sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
-int LED = 2;
+
+#ifdef __AVR__
+ #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
+#endif
+
+// Which pin on the Arduino is connected to the NeoPixels?
+#define PIN        15 // On Trinket or Gemma, suggest changing this to 1
+
+// How many NeoPixels are attached to the Arduino?
+#define NUMPIXELS 25 // Popular NeoPixel ring size
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
+
+
 int levelSum = 1;
 bool LevelComplete = false;
 const byte ROWS = 5;
@@ -36,6 +48,7 @@ void ChangeLights(char customKey);
 void startLevel();
 void checkLevel();
 void PrintLevel();
+void displayLEDs();
 
 void setup()
 {
@@ -46,6 +59,7 @@ void setup()
     for (;;)
       ; // Don't proceed, loop forever
   }
+  pixels.begin();
 
   // Show initial display buffer contents on the screen --
   // the library initializes this with an Adafruit splash screen.
@@ -54,7 +68,7 @@ void setup()
 
   // Clear the buffer
   display.clearDisplay();
-  pinMode(LED, OUTPUT);
+  pixels.show();
 }
 
 void loop()
@@ -66,6 +80,7 @@ void loop()
     memcpy(Lights, Level1, sizeof(Lights));
     Serial.println("Level: " + String(LevelNo));
     PrintLevel();
+    displayLEDs();
     while (LevelComplete == false)
     {
       if (levelSum > 0)
@@ -261,6 +276,7 @@ void ChangeData(int toChange[], int count)
   Serial.println("Level: " + String(LevelNo));
   PrintLevel();
   Serial.println("Tot. On: " + String(levelSum + 1));
+  displayLEDs();
 }
 
 void PrintLevel()
@@ -290,4 +306,29 @@ void PrintLevel()
     Serial.print(Lights[i]);
   }
   Serial.println();
+}
+
+void displayLEDs()
+{
+  int adj = 24;
+  pixels.clear();
+  for (int i = 0; i <= 24; i++)
+  {
+
+    //int adj = 24;
+    if (Lights[i] == '1'){
+      Serial.println(String(i) + " is on " + Lights[i]);
+      pixels.setPixelColor(adj, pixels.Color(0, 150, 0));
+
+    }
+    else if (Lights[i] == '0') {
+      Serial.println(String(i) + " is off " + Lights[i]);
+      pixels.setPixelColor(adj, pixels.Color(0, 0, 0));
+
+    }
+    adj--;
+
+  }
+  pixels.show();
+
 }
