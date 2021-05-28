@@ -249,7 +249,7 @@ I was quite amazed. My soldering wasn't the best, but it worked out very well. T
 
 ### More software work
 
-On Wednesday, I managed to implement the code (see commit c3f1d784189837028c2adabeba215a8f3a0d6ff0) to write data out to the LED string. This worked quite well
+On Wednesday, I managed to implement the code (see commit #c3f1d78) to write data out to the LED string. This worked quite well
 
 # Changes
 
