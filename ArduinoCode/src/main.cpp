@@ -96,10 +96,10 @@ void loop()
     //Update the display to reflect level change
     updateDisplay();
 
-    //This is the first varification to tell if the level has been complete
+    //This is the first verification to tell if the level has been complete
     while (LevelComplete == false)
     {
-      //Second varification, so I can come out of this if statement, flip the levelComplete bool, then initialise the next level.
+      //Second verification, so I can come out of this if statement, flip the levelComplete bool, then initialise the next level.
       if (levelSum > 0)
       {
         awaitKeyPress();
@@ -141,7 +141,7 @@ void ChangeLights(char customKey)
   if (customKey == 'A')
   {
     // Creates an array to pass to the change data routine
-    int toChange[] = {0, 1, 5};                                   // These are the locations that will be manipulated int he matrix
+    int toChange[] = {0, 1, 5};                                   // These are the locations that will be manipulated in the matrix
     ChangeData(toChange, sizeof(toChange) / sizeof(toChange[0])); // Run the change data routine, which passes in the array and size
   }
   if (customKey == 'B')
@@ -274,7 +274,7 @@ void ChangeData(int toChange[], int count)
   for (int No = 0; No < count; No++)
   {
     // If the character in the array at the position supplied is equal to 0, change it to 1, else if it's 1, change it to zero.
-    // I deliberatly used an else if, so I could possibly add more characters (more colours) in the future 
+    // I deliberately used an else if, so I could possibly add more characters (more colours) in the future 
     if (currentLevel[toChange[No]] == '0')
     {
       currentLevel[toChange[No]] = '1';
@@ -350,7 +350,7 @@ void displayLEDs()
 }
 
 void updateDisplay() {
-  // A useall routine to change the data on the OLED display
+  // A catch-all routine to change the data on the OLED display
   display.clearDisplay();                         // Clear the buffer.
   display.drawBitmap(0,0,bgImage,128,32,WHITE);   // Draw the background.
   display.setCursor(28, 10);                      // Set the cursor and display the Level No
