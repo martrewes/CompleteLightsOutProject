@@ -291,10 +291,10 @@ void ChangeData(int toChange[], int count)
     {
       levelSum = levelSum + 1;
     }
-    else
-    {
-      levelSum = levelSum; //Don't really think I need this statement
-    }
+  //  else
+  //  {
+  //    levelSum = levelSum; //Don't really think I need this statement, commented out.
+  //  }
   }
 }
 

@@ -16,6 +16,10 @@
   - [Edit 5](#edit-5)
     - [Playing with Sound](#playing-with-sound)
     - [**I made a grave mistake!!**](#i-made-a-grave-mistake)
+  - [Edit 6](#edit-6)
+    - [PCBs Arrived](#pcbs-arrived)
+    - [It Verks!](#it-verks)
+    - [More software work](#more-software-work)
 - [Changes](#changes)
 
 ## Intro
@@ -168,7 +172,7 @@ I have decided to include the Arduino code into this repository now, so I don't 
 
 ### Serial Output
 
-```
+```bash
 Level: 1
 00000
 00000
@@ -230,6 +234,23 @@ Luckily, my PCB should be somewhat salvageable. I can cut the trace to the data 
 
 I will fix the PCB in the future, as well make it obvious where code will need to be omitted should it get wired up correctly in the future. Well, that was fun. Still, continue on I suppose.
 
+## Edit 6
+
+### PCBs Arrived
+
+After much waiting ( which felt much more than last time, but was only 2 days longer), my PCBs finally arrived! I immediately started putting one together that afternoon, and...
+
+### It Verks!
+
+I was quite amazed. My soldering wasn't the best, but it worked out very well. The tolerances on the holes for the LEDs was perfect as it fit them very snug and was able to keep them in position whilst I soldered them in. All in all, I am very happy with the way it turned out. You will notice that I did have to cut the trace for the data line, so I could add a bodge wire to fix my [mistake](#i-made-a-grave-mistake) from the top, around the buttons and soldered to the data-in of LED 25.
+
+![img](imgs/SolderedPCBBack.jpg)  
+![img](imgs/SolderedPCBFront.jpg)
+
+### More software work
+
+On Wednesday, I managed to implement the code (see commit c3f1d784189837028c2adabeba215a8f3a0d6ff0) to write data out to the LED string. This worked quite well
+
 # Changes
 
 - 31/04/2021
@@ -252,3 +273,5 @@ I will fix the PCB in the future, as well make it obvious where code will need t
 - 10/05/2021
   - Added info about sound
   - Made an awful error which could have screwed the project
+- 28/05/2021
+  - Added info about PCB and software
