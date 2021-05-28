@@ -4,6 +4,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_NeoPixel.h>
+#include <levels.h>
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
 #define OLED_RESET 4        // Reset pin # (or -1 if sharing Arduino reset pin)
@@ -33,11 +34,13 @@ char Keys[ROWS][COLS] = {
     {'K', 'L', 'M', 'N', 'O'},
     {'P', 'Q', 'R', 'S', 'T'},
     {'U', 'V', 'W', 'X', 'Y'}};
-int LevelNo = 1;
+int LevelNo = 0;
 char Lights[25] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
 byte rowPins[COLS] = {13, 12, 14, 27, 26}; //connect to the row pinouts of the keypad
 byte colPins[ROWS] = {25, 33, 32, 4, 5};   //connect to the column pinouts of the keypad, 35 and 35 wouldn't work as input pins.
-char Level1[25] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '1', '0', '1', '1', '0', '1', '0', '1'};
+//char Level1[25] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '1', '0', '1', '1', '0', '1', '0', '1'};
+
+char * Levels[] = {Level1,Level2,Level3,Level4,Level5,Level6,Level7,Level8,Level9,Level10,Level11,Level12,Level13,Level14,Level15,Level16,Level17,Level18,Level19,Level20,Level21,Level22,Level23,Level24,Level25,Level26,Level27,Level28,Level29,Level30,Level31,Level32,Level33,Level34,Level35,Level36,Level37,Level38,Level39,Level40,Level41,Level42,Level43,Level44,Level45,Level46,Level47,Level48,Level49,Level50};
 
 //initialize an instance of class NewKeypad
 Keypad customKeypad = Keypad(makeKeymap(Keys), rowPins, colPins, ROWS, COLS);
@@ -74,10 +77,10 @@ void setup()
 void loop()
 {
 
-  while (LevelNo < 10)
+  while (LevelNo < 50)
   {
     LevelComplete = false;
-    memcpy(Lights, Level1, sizeof(Lights));
+    memcpy(Lights, Levels[LevelNo], sizeof(Lights));
     Serial.println("Level: " + String(LevelNo));
     PrintLevel();
     displayLEDs();
@@ -317,12 +320,12 @@ void displayLEDs()
 
     //int adj = 24;
     if (Lights[i] == '1'){
-      Serial.println(String(i) + " is on " + Lights[i]);
-      pixels.setPixelColor(adj, pixels.Color(0, 150, 0));
+      //Serial.println(String(i) + " is on " + Lights[i]);
+      pixels.setPixelColor(adj, pixels.Color(0, 50, 0));
 
     }
     else if (Lights[i] == '0') {
-      Serial.println(String(i) + " is off " + Lights[i]);
+      //Serial.println(String(i) + " is off " + Lights[i]);
       pixels.setPixelColor(adj, pixels.Color(0, 0, 0));
 
     }
