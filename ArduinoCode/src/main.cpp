@@ -5,12 +5,13 @@
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_NeoPixel.h>
 #include <levels.h>
+
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 32 // OLED display height, in pixels
 #define OLED_RESET 4        // Reset pin # (or -1 if sharing Arduino reset pin)
 #define SCREEN_ADDRESS 0x3C ///< See datasheet for Address; 0x3D for 128x64, 0x3C for 128x32
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 #ifdef __AVR__
  #include <avr/power.h> // Required for 16 MHz Adafruit Trinket
@@ -114,7 +115,8 @@ void startLevel()
     display.setTextSize(1);
     display.setTextColor(WHITE);
     display.clearDisplay();
-    display.println("Pressed:" + String(customKey));
+    display.drawBitmap(0,0,bgImage,128,32,WHITE);
+    //display.println("Pressed:" + String(customKey));
     display.display();
   }
 }
@@ -317,8 +319,6 @@ void displayLEDs()
   pixels.clear();
   for (int i = 0; i <= 24; i++)
   {
-
-    //int adj = 24;
     if (Lights[i] == '1'){
       //Serial.println(String(i) + " is on " + Lights[i]);
       pixels.setPixelColor(adj, pixels.Color(0, 50, 0));
