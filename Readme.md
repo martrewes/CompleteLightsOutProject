@@ -244,12 +244,20 @@ After much waiting ( which felt much more than last time, but was only 2 days lo
 
 I was quite amazed. My soldering wasn't the best, but it worked out very well. The tolerances on the holes for the LEDs was perfect as it fit them very snug and was able to keep them in position whilst I soldered them in. All in all, I am very happy with the way it turned out. You will notice that I did have to cut the trace for the data line, so I could add a bodge wire to fix my [mistake](#i-made-a-grave-mistake) from the top, around the buttons and soldered to the data-in of LED 25.
 
-![img](imgs/SolderedPCBBack.jpg)  
+*Back (Soldered)*  
+![img](imgs/SolderedPCBBack.jpg)
+*Front*    
 ![img](imgs/SolderedPCBFront.jpg)
 
 ### More software work
 
-On Wednesday, I managed to implement the code (see commit #c3f1d78) to write data out to the LED string. This worked quite well
+On Wednesday, I managed to [implement the code](https://github.com/martrewes/CompleteLightsOutProject/commit/c3f1d784189837028c2adabeba215a8f3a0d6ff0) to write data out to the LED string. This worked quite well, but I was too tired to continue once I had got it to work.
+
+Today (Friday), I have worked solely on the software and have made quite the improvement. I have added 50 levels, implemented use of the screen to show what level you are on and how many moves you have made, and have done a massive clean-up of the code and added many comments (something I end up neglecting in the past). I'm quite excited to see how this goes going forward. There is still so much to do, though.  
+*Close up of Display*  
+![img](imgs/CloseUpOfDisplay.jpg)  
+*Demo*  
+![img](imgs/demo.gif)
 
 # Changes
 
