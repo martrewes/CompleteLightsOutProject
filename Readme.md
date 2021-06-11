@@ -20,6 +20,9 @@
     - [PCBs Arrived](#pcbs-arrived)
     - [It Verks!](#it-verks)
     - [More software work](#more-software-work)
+  - [Edit 7](#edit-7)
+    - [I haven't done much](#i-havent-done-much)
+    - [Schematic/PCB Now Fixed](#schematicpcb-now-fixed)
 - [Changes](#changes)
 
 ## Intro
@@ -259,6 +262,22 @@ Today (Friday), I have worked solely on the software and have made quite the imp
 *Demo*  
 ![img](imgs/demo.gif)
 
+## Edit 7
+
+### I haven't done much
+
+I actually haven't done much with the project over the last week or so. Though I have been looking into how I can power the game. The original power modules I had purchased didn't output 5V like expected, just what ever the battery voltage was. I know I could make my own power circuit, I thought that would end up being far more work than it is worth. So I decided to buy a cheap power bank. I looked in the local Poundland and they didn't have any under £5, so I hunted around the town centre. I could not find anything until I got to CeX where I was able to purchase a pre-owned one for £0.75. So I have pulled this apart and will be using this to power the device.
+
+### Schematic/PCB Now Fixed
+
+I have just taken the time today to fix the schematic and PCB. The code to reverse the output to the LEDs will remain in my code until I can get the new PCB manufactured. I wasn't going to do this, but thought maybe it would be for the best as I can design the housing around the new one (which also has mounting holes), and if anyone wanted to build one it would be an easier process. So I think I am going to go ahead and do that.
+
+![img](imgs/ButtonPadPCB_Update.jpg)  
+![img](imgs/ButtonPadPCBFront_Updated.jpg)  
+![img](imgs/ButtonPadPCBBack_Updated.jpg)  
+
+Overall, I am still happy with how the progress is going with this, and looking forward to see what is next.
+
 # Changes
 
 - 31/04/2021
@@ -283,3 +302,6 @@ Today (Friday), I have worked solely on the software and have made quite the imp
   - Made an awful error which could have screwed the project
 - 28/05/2021
   - Added info about PCB and software
+- 11/06/2021
+  - Added info about Power
+  - Added new (fixed) PCB design
