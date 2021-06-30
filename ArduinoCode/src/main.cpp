@@ -23,6 +23,7 @@ int levelSum = 1;             //used to tell if the level is complete
 bool LevelComplete = false;   //used to pull out of the level loop
 int LevelNo = 0;              //used to pull level data into currentLevel[]
 int lvlMoves = 0;
+bool twoColourMode = false;
 
 // Declarations and initialisation of the keypad (switch matrix)
 const byte ROWS = 5;
@@ -87,6 +88,8 @@ void loop()
   while (LevelNo < 50)
   {
   //Initialise the Level -----
+    // Ensure we are in single colour mode
+    twoColourMode = false;
     //Level complete needs to be set as false, this will allow me to pull out of the current level loop
     LevelComplete = false;
     // Copy level data into currentLevel array
@@ -271,23 +274,43 @@ void ChangeData(int toChange[], int count)
   // Temporarily set the level sum to 0, so it can be recounted
   levelSum = 0;
   // Start a for loop to only change relevent data in the array
-  for (int No = 0; No < count; No++)
-  {
+  if (twoColourMode == true) {
+    for (int No = 0; No < count; No++)
+    {
     // If the character in the array at the position supplied is equal to 0, change it to 1, else if it's 1, change it to zero.
+    // As of 30/06/21 I added one additional state for red. Looping from 2, 1 to 0.
     // I deliberately used an else if, so I could possibly add more characters (more colours) in the future 
-    if (currentLevel[toChange[No]] == '0')
-    {
-      currentLevel[toChange[No]] = '1';
+      if (currentLevel[toChange[No]] == '0')
+      {
+        currentLevel[toChange[No]] = '2';
+      }
+      else if (currentLevel[toChange[No]] == '2')
+      {
+        currentLevel[toChange[No]] = '1';
+      }
+      else if (currentLevel[toChange[No]] == '1')
+      {
+        currentLevel[toChange[No]] = '0';
+      }
     }
-    else if (currentLevel[toChange[No]] == '1')
+  }
+  else {
+    for (int No = 0; No < count; No++)
     {
-      currentLevel[toChange[No]] = '0';
+      if (currentLevel[toChange[No]] == '0')
+      {
+        currentLevel[toChange[No]] = '1';
+      }
+      else if (currentLevel[toChange[No]] == '1')
+      {
+        currentLevel[toChange[No]] = '0';
+      }
     }
   }
   // Start the counting routine to see if any lights are still on
   for (int i = 0; i < 24; i++)
   {
-    if (currentLevel[i] == '1')   // This may be changed to "!= '0' " to account for different characters in the future
+    if (currentLevel[i] != '0')   // This may be changed to "!= '0' " to account for different characters in the future
     {
       levelSum = levelSum + 1;
     }
@@ -336,8 +359,12 @@ void displayLEDs()
   pixels.clear();   // Clear the data for the LEDs so it can be rebuilt.
   for (int i = 0; i <= 24; i++)
   {
-    if (currentLevel[i] == '1'){
-      // If the current (adjusted) location contains a 1, light up that LED Green
+    if (currentLevel[i] == '2'){
+      // If the current (adjusted) location contains a 2, light up that LED Red
+      pixels.setPixelColor(adj, pixels.Color(50, 0, 0));
+    }
+    else if (currentLevel[i] == '1') {
+      // // If the current (adjusted) location contains a 1, light up that LED Green
       pixels.setPixelColor(adj, pixels.Color(0, 50, 0));
     }
     else if (currentLevel[i] == '0') {
@@ -360,6 +387,6 @@ void updateDisplay() {
   display.display();                              // Write to the display.
 }
 
-// Current Stats.
-//      RAM:   [          ]   5.0% (used 16296 bytes from 327680 bytes)
-//      Flash: [==        ]  19.3% (used 252998 bytes from 1310720 bytes)
+//  Current Stats.
+//  RAM:   [          ]   5.0% (used 16304 bytes from 327680 bytes)
+//  Flash: [==        ]  19.3% (used 253098 bytes from 1310720 bytes)
