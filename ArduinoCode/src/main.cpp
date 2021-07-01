@@ -47,6 +47,7 @@ char * Levels[] = {Level1,Level2,Level3,Level4,Level5,Level6,Level7,Level8,Level
                    Level29,Level30,Level31,Level32,Level33,Level34,Level35,Level36,Level37,
                    Level38,Level39,Level40,Level41,Level42,Level43,Level44,Level45,Level46,
                    Level47,Level48,Level49,Level50};
+char * LevelsHard[] = {HLevel1,HLevel2,HLevel3,HLevel4,HLevel5};
 
 
 
@@ -58,6 +59,9 @@ void checkLevel();
 void PrintLevel();
 void displayLEDs();
 void updateDisplay();
+void startEasy();
+void startHard();
+void gameComplete();
 
 void setup()
 {
@@ -82,42 +86,8 @@ void setup()
 
 void loop()
 {
-// Nested loops make up the level logic. So far only one colour, but I am hoping to add another. As well as more levels too.
-// I will need to somehow make a menu system in order to do this, but as this is just software I can worry about that when
-// I have completed the hardware build. So far I have 50 Levels to start with. All from the LightsOut 2000 Game.
-  while (LevelNo < 50)
-  {
-  //Initialise the Level -----
-    // Ensure we are in single colour mode
-    twoColourMode = false;
-    //Level complete needs to be set as false, this will allow me to pull out of the current level loop
-    LevelComplete = false;
-    // Copy level data into currentLevel array
-    memcpy(currentLevel, Levels[LevelNo], sizeof(currentLevel));
-    // Show the level on the LEDs
-    displayLEDs();
-    //Update the display to reflect level change
-    updateDisplay();
 
-    //This is the first verification to tell if the level has been complete
-    while (LevelComplete == false)
-    {
-      //Second verification, so I can come out of this if statement, flip the levelComplete bool, then initialise the next level.
-      if (levelSum > 0)
-      {
-        awaitKeyPress();
-      }
-      else
-      {
-        //Flip the bool
-        LevelComplete = true;
-        //Add 1 to LevelNo, and reset number of moves and level sum.
-        LevelNo++;
-        lvlMoves = 0;
-        levelSum = 1;
-      }
-    }
-  }
+startHard();
 }
 
 void awaitKeyPress()
@@ -387,6 +357,91 @@ void updateDisplay() {
   display.display();                              // Write to the display.
 }
 
+void startEasy(){
+    // Nested loops make up the level logic. So far only one colour, but I am hoping to add another. As well as more levels too.
+// I will need to somehow make a menu system in order to do this, but as this is just software I can worry about that when
+// I have completed the hardware build. So far I have 50 Levels to start with. All from the LightsOut 2000 Game.
+    while (LevelNo < 50)
+  {
+  //Initialise the Level -----
+    // Ensure we are in single colour mode
+    twoColourMode = false;
+    //Level complete needs to be set as false, this will allow me to pull out of the current level loop
+    LevelComplete = false;
+    // Copy level data into currentLevel array
+    memcpy(currentLevel, Levels[LevelNo], sizeof(currentLevel));
+    // Show the level on the LEDs
+    displayLEDs();
+    //Update the display to reflect level change
+    updateDisplay();
+
+    //This is the first verification to tell if the level has been complete
+    while (LevelComplete == false)
+    {
+      //Second verification, so I can come out of this if statement, flip the levelComplete bool, then initialise the next level.
+      if (levelSum > 0)
+      {
+        awaitKeyPress();
+      }
+      else
+      {
+        //Flip the bool
+        LevelComplete = true;
+        //Add 1 to LevelNo, and reset number of moves and level sum.
+        LevelNo++;
+        lvlMoves = 0;
+        levelSum = 1;
+      }
+    }
+  }
+}
+
+void startHard(){
+    // Nested loops make up the level logic. So far only one colour, but I am hoping to add another. As well as more levels too.
+// I will need to somehow make a menu system in order to do this, but as this is just software I can worry about that when
+// I have completed the hardware build. So far I have 50 Levels to start with. All from the LightsOut 2000 Game.
+  while (LevelNo < 3)
+  {
+  //Initialise the Level -----
+    // Ensure we are in single colour mode
+    twoColourMode = true;
+    //Level complete needs to be set as false, this will allow me to pull out of the current level loop
+    LevelComplete = false;
+    // Copy level data into currentLevel array
+    memcpy(currentLevel, LevelsHard[LevelNo], sizeof(currentLevel));
+    // Show the level on the LEDs
+    displayLEDs();
+    //Update the display to reflect level change
+    updateDisplay();
+
+    //This is the first verification to tell if the level has been complete
+    while (LevelComplete == false)
+    {
+      //Second verification, so I can come out of this if statement, flip the levelComplete bool, then initialise the next level.
+      if (levelSum > 0)
+      {
+        awaitKeyPress();
+      }
+      else
+      {
+        //Flip the bool
+        LevelComplete = true;
+        //Add 1 to LevelNo, and reset number of moves and level sum.
+        LevelNo++;
+        lvlMoves = 0;
+        levelSum = 1;
+      }
+    }
+  }
+  gameComplete();
+}
+
+void gameComplete() {
+  display.clearDisplay();
+  display.setCursor(10,18);
+  display.print("Game Comp.");
+  display.display();
+}
 //  Current Stats.
 //  RAM:   [          ]   5.0% (used 16304 bytes from 327680 bytes)
 //  Flash: [==        ]  19.3% (used 253098 bytes from 1310720 bytes)
