@@ -394,6 +394,7 @@ void startEasy(){
       }
     }
   }
+  gameComplete();
 }
 
 void startHard(){
