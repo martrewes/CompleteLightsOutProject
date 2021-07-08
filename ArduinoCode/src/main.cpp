@@ -4,6 +4,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <Adafruit_NeoPixel.h>
+// levels.h contains all of the levels as well as the background image. I put them there to clean up variable declarations. It's already getting unweildy.
 #include <levels.h>
 
 // Definitions and initialisation for the screen
@@ -24,6 +25,11 @@ bool LevelComplete = false;   //used to pull out of the level loop
 int LevelNo = 0;              //used to pull level data into currentLevel[]
 int lvlMoves = 0;
 bool twoColourMode = false;
+int totLevels;
+
+// Delare page number and if in Menu (on startup true)
+int page = 1;
+bool inMenu = true;
 
 // Declarations and initialisation of the keypad (switch matrix)
 const byte ROWS = 5;
@@ -47,7 +53,9 @@ char * Levels[] = {Level1,Level2,Level3,Level4,Level5,Level6,Level7,Level8,Level
                    Level29,Level30,Level31,Level32,Level33,Level34,Level35,Level36,Level37,
                    Level38,Level39,Level40,Level41,Level42,Level43,Level44,Level45,Level46,
                    Level47,Level48,Level49,Level50};
-char * LevelsHard[] = {HLevel1,HLevel2,HLevel3,HLevel4,HLevel5};
+char * LevelsHard[] = {HLevel1,HLevel2,HLevel3,HLevel4,HLevel5,HLevel6,HLevel7,HLevel8,HLevel9,
+                      HLevel10,HLevel11,HLevel12,HLevel13,HLevel14,HLevel15,HLevel16,HLevel17,
+                      HLevel18,HLevel19,HLevel20,HLevel21,HLevel22,HLevel23,HLevel24,HLevel25};
 
 
 
@@ -59,9 +67,9 @@ void checkLevel();
 void PrintLevel();
 void displayLEDs();
 void updateDisplay();
-void startEasy();
-void startHard();
+void startGame();
 void gameComplete();
+void displayMenu();
 
 void setup()
 {
@@ -87,7 +95,7 @@ void setup()
 void loop()
 {
 
-startHard();
+displayMenu();
 }
 
 void awaitKeyPress()
@@ -95,7 +103,29 @@ void awaitKeyPress()
   //Waits for a key to be pressed in the switch matrix
   char customKey = customKeypad.getKey();
   //If there is something..
-  if (customKey)
+  if (inMenu == true) {
+      if (customKey == 'J') {
+        if (page != 3) {
+          page++;
+          displayMenu();
+        }
+      }
+      if (customKey == 'F') {
+        if (page != 1) {
+          page--;
+          displayMenu();
+        }
+      }
+      if (customKey == 'W') {
+        if (page) {
+          lvlMoves = 0;
+          inMenu = false;
+          startGame();
+        }
+      }
+    
+  }
+  else if (customKey)
   {
     lvlMoves++;                 // Add 1 to moves counter
     ChangeLights(customKey);    // Modify current level array using the pressed key
@@ -352,12 +382,17 @@ void updateDisplay() {
   display.drawBitmap(0,0,bgImage,128,32,WHITE);   // Draw the background.
   display.setCursor(28, 10);                      // Set the cursor and display the Level No
   display.print(String(LevelNo + 1));             // as it starts at zero, add 1.
-  display.setCursor(98, 10);                      // Move the cursor to the second location
+  if (lvlMoves > 99){
+    display.setCursor(88,10);
+  }
+  else{
+  display.setCursor(98, 10);
+  }                      // Move the cursor to the second location
   display.print(String(lvlMoves));                // to display the amount of moves.
   display.display();                              // Write to the display.
 }
 
-void startEasy(){
+void startGame(){
     // Nested loops make up the level logic. So far only one colour, but I am hoping to add another. As well as more levels too.
 // I will need to somehow make a menu system in order to do this, but as this is just software I can worry about that when
 // I have completed the hardware build. So far I have 50 Levels to start with. All from the LightsOut 2000 Game.
@@ -365,51 +400,18 @@ void startEasy(){
   {
   //Initialise the Level -----
     // Ensure we are in single colour mode
-    twoColourMode = false;
+    //twoColourMode = false;
     //Level complete needs to be set as false, this will allow me to pull out of the current level loop
     LevelComplete = false;
-    // Copy level data into currentLevel array
-    memcpy(currentLevel, Levels[LevelNo], sizeof(currentLevel));
-    // Show the level on the LEDs
-    displayLEDs();
-    //Update the display to reflect level change
-    updateDisplay();
-
-    //This is the first verification to tell if the level has been complete
-    while (LevelComplete == false)
-    {
-      //Second verification, so I can come out of this if statement, flip the levelComplete bool, then initialise the next level.
-      if (levelSum > 0)
-      {
-        awaitKeyPress();
-      }
-      else
-      {
-        //Flip the bool
-        LevelComplete = true;
-        //Add 1 to LevelNo, and reset number of moves and level sum.
-        LevelNo++;
-        lvlMoves = 0;
-        levelSum = 1;
-      }
+    if (page == 1) {
+      memcpy(currentLevel, Levels[LevelNo], sizeof(currentLevel));
     }
-  }
-  gameComplete();
-}
-
-void startHard(){
-    // Nested loops make up the level logic. So far only one colour, but I am hoping to add another. As well as more levels too.
-// I will need to somehow make a menu system in order to do this, but as this is just software I can worry about that when
-// I have completed the hardware build. So far I have 50 Levels to start with. All from the LightsOut 2000 Game.
-  while (LevelNo < 3)
-  {
-  //Initialise the Level -----
-    // Ensure we are in single colour mode
-    twoColourMode = true;
-    //Level complete needs to be set as false, this will allow me to pull out of the current level loop
-    LevelComplete = false;
+    else if (page == 2) {
+      Serial.print(String(LevelNo));
+      memcpy(currentLevel, LevelsHard[LevelNo], sizeof(currentLevel));
+    }
     // Copy level data into currentLevel array
-    memcpy(currentLevel, LevelsHard[LevelNo], sizeof(currentLevel));
+    
     // Show the level on the LEDs
     displayLEDs();
     //Update the display to reflect level change
@@ -442,6 +444,40 @@ void gameComplete() {
   display.setCursor(10,18);
   display.print("Game Comp.");
   display.display();
+}
+
+void displayMenu() {
+  memcpy(currentLevel, menuLeds, sizeof(currentLevel));
+  displayLEDs();
+
+  //while (page > 0) {
+    if (page == 1) {
+      display.clearDisplay();
+      display.setCursor(0,14);
+      display.print("   Easy  >");
+      display.display();
+      twoColourMode = false;
+      totLevels = 50;
+    }
+    if (page == 2) {
+      display.clearDisplay();
+      display.setCursor(0,14);
+      display.print("<  Hard  >");
+      display.display();
+      twoColourMode = true;
+      totLevels = 25;
+    }
+    if (page == 3) {
+      display.clearDisplay();
+      display.setCursor(0,14);
+      display.print("<  XHard  ");
+      display.display();
+      twoColourMode = true;
+      totLevels = 50;
+    }
+  awaitKeyPress();
+  //}
+
 }
 //  Current Stats.
 //  RAM:   [          ]   5.0% (used 16304 bytes from 327680 bytes)
