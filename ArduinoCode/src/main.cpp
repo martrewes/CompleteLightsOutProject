@@ -114,19 +114,19 @@ void awaitKeyPress()
   char customKey = customKeypad.getKey();
   //If there is something..
   if (inMenu == true) {
-      if (customKey == 'J') {
+      if (customKey == 'J' || customKey == 'D' || customKey == 'N') {
         if (page != 3) {
           page++;
           displayMenu();
         }
       }
-      if (customKey == 'F') {
+      if (customKey == 'F' || customKey == 'B' || customKey == 'L') {
         if (page != 1) {
           page--;
           displayMenu();
         }
       }
-      if (customKey == 'W') {
+      if (customKey == 'W' || customKey == 'V' || customKey == 'X') {
         if (page) {
           lvlMoves = 0;
           inMenu = false;
