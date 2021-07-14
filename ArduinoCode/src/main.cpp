@@ -55,8 +55,17 @@ char * Levels[] = {Level1,Level2,Level3,Level4,Level5,Level6,Level7,Level8,Level
                    Level47,Level48,Level49,Level50};
 char * LevelsHard[] = {HLevel1,HLevel2,HLevel3,HLevel4,HLevel5,HLevel6,HLevel7,HLevel8,HLevel9,
                       HLevel10,HLevel11,HLevel12,HLevel13,HLevel14,HLevel15,HLevel16,HLevel17,
-                      HLevel18,HLevel19,HLevel20,HLevel21,HLevel22,HLevel23,HLevel24,HLevel25};
-
+                      HLevel18,HLevel19,HLevel20,HLevel21,HLevel22,HLevel23,HLevel24,HLevel25,
+                      HLevel26,HLevel27,HLevel28,HLevel29,HLevel30,HLevel31,HLevel32,HLevel33,
+                      HLevel34,HLevel35,HLevel36,HLevel37,HLevel38,HLevel39,HLevel40,HLevel41,
+                      HLevel42,HLevel43,HLevel44,HLevel45,HLevel46,HLevel47,HLevel48,HLevel49,HLevel50};
+char * LevelsXHard[] = {XHLevel1, XHLevel2, XHLevel3, XHLevel4, XHLevel5, XHLevel6, XHLevel7, XHLevel8, 
+                        XHLevel9, XHLevel10, XHLevel11, XHLevel12, XHLevel13, XHLevel14, XHLevel15, 
+                        XHLevel16, XHLevel17, XHLevel18, XHLevel19, XHLevel20, XHLevel21, XHLevel22, 
+                        XHLevel23, XHLevel24, XHLevel25, XHLevel26, XHLevel27, XHLevel28, XHLevel29, 
+                        XHLevel30, XHLevel31, XHLevel32, XHLevel33, XHLevel34, XHLevel35, XHLevel36, 
+                        XHLevel37, XHLevel38, XHLevel39, XHLevel40, XHLevel41, XHLevel42, XHLevel43, 
+                        XHLevel44, XHLevel45, XHLevel46, XHLevel47, XHLevel48, XHLevel49, XHLevel50};
 
 
 //Declare subroutines
@@ -70,6 +79,7 @@ void updateDisplay();
 void startGame();
 void gameComplete();
 void displayMenu();
+void(* resetFunc) (void) = 0;
 
 void setup()
 {
@@ -393,24 +403,23 @@ void updateDisplay() {
 }
 
 void startGame(){
-    // Nested loops make up the level logic. So far only one colour, but I am hoping to add another. As well as more levels too.
-// I will need to somehow make a menu system in order to do this, but as this is just software I can worry about that when
-// I have completed the hardware build. So far I have 50 Levels to start with. All from the LightsOut 2000 Game.
+    // Nested loops make up the level logic. 
     while (LevelNo < 50)
   {
   //Initialise the Level -----
-    // Ensure we are in single colour mode
-    //twoColourMode = false;
     //Level complete needs to be set as false, this will allow me to pull out of the current level loop
     LevelComplete = false;
+    // Copy level data into currentLevel array, dependant on difficulty
     if (page == 1) {
       memcpy(currentLevel, Levels[LevelNo], sizeof(currentLevel));
     }
     else if (page == 2) {
-      Serial.print(String(LevelNo));
       memcpy(currentLevel, LevelsHard[LevelNo], sizeof(currentLevel));
     }
-    // Copy level data into currentLevel array
+    else if (page == 3) {
+      memcpy(currentLevel, LevelsXHard[LevelNo], sizeof(currentLevel));
+    }
+    
     
     // Show the level on the LEDs
     displayLEDs();
@@ -444,32 +453,36 @@ void gameComplete() {
   display.setCursor(10,18);
   display.print("Game Comp.");
   display.display();
+  delay(3000);
+  resetFunc();
 }
 
 void displayMenu() {
   memcpy(currentLevel, menuLeds, sizeof(currentLevel));
   displayLEDs();
-
+  display.clearDisplay();
+  display.drawBitmap(0,0,menu_bgMenubg,128,32,WHITE);
+  
   //while (page > 0) {
     if (page == 1) {
-      display.clearDisplay();
-      display.setCursor(0,14);
+      //display.clearDisplay();
+      display.setCursor(4,12);
       display.print("   Easy  >");
       display.display();
       twoColourMode = false;
       totLevels = 50;
     }
     if (page == 2) {
-      display.clearDisplay();
-      display.setCursor(0,14);
+      //display.clearDisplay();
+      display.setCursor(4,12);
       display.print("<  Hard  >");
       display.display();
       twoColourMode = true;
       totLevels = 25;
     }
     if (page == 3) {
-      display.clearDisplay();
-      display.setCursor(0,14);
+      //display.clearDisplay();
+      display.setCursor(4,12);
       display.print("<  XHard  ");
       display.display();
       twoColourMode = true;
@@ -480,5 +493,5 @@ void displayMenu() {
 
 }
 //  Current Stats.
-//  RAM:   [          ]   5.0% (used 16304 bytes from 327680 bytes)
-//  Flash: [==        ]  19.3% (used 253098 bytes from 1310720 bytes)
+//  RAM:   [=         ]   5.2% (used 17056 bytes from 327680 bytes)
+//  Flash: [==        ]  19.5% (used 255018 bytes from 1310720 bytes)
